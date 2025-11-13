@@ -8,10 +8,7 @@
     package = pkgs.nix;
     settings.experimental-features = ["nix-command" "flakes"];
   };
-  # environment.
   home.packages = [
-    # pkgs.file-roller
-    # pkgs.powertop
     pkgs.atuin
     pkgs.bacon
     pkgs.bat
@@ -77,6 +74,7 @@
     # Nixd lsp
     pkgs.alejandra
     pkgs.nixd
+
     # Unfree software
     pkgs.obsidian
     pkgs.vscode
@@ -85,7 +83,6 @@
     pkgs.zeromq
 
     # Container Tools
-    # pkgs.containerd
     pkgs.docker
     pkgs.docker-compose
     pkgs.docker-gc
@@ -122,7 +119,6 @@
       "en-GB"
       "ja"
     ];
-
   };
 
   # Configured podman
@@ -200,6 +196,7 @@
       bind % split-window -h -c "#{pane_current_path}"
     '';
   };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

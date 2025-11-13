@@ -3,7 +3,7 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
- #   nix.url = "https://flakehub.com/f/DeterminateSystems/nix/2.30.2.tar.gz";
+    #   nix.url = "https://flakehub.com/f/DeterminateSystems/nix/2.30.2.tar.gz";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
