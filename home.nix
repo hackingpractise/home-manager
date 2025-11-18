@@ -21,13 +21,10 @@
     pkgs.ffmpeg-full
     pkgs.fh
     pkgs.fzf
-    pkgs.git-cliff
-    pkgs.gitFull
     pkgs.go
     pkgs.gotop
     pkgs.htop
     pkgs.hyperfine
-    pkgs.lazygit
     pkgs.lm_sensors
     pkgs.lolcat
     pkgs.ncspot
@@ -65,6 +62,12 @@
     pkgs.zip
     pkgs.zls
     pkgs.zoxide
+
+    # VCS [Version Control System]
+    pkgs.jujutsu
+    pkgs.git-cliff
+    pkgs.gitFull
+    pkgs.lazygit
 
     # CLI tools
     pkgs.curlie
