@@ -9,18 +9,33 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    utils.url = "github:numtide/flake-utils";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    fenix,
+    utils,
     ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+  }:
+  # utils.lib.eachDefaultSystem (
+  # system: let
+  let
+    system = utils.lib.system.x86_64-linux;
+    pkgs = import nixpkgs {inherit system;};
+    fenixLib = fenix.packages.${system};
+    rustToolchain = fenixLib.stable.toolchain;
   in {
     homeConfigurations.raph = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
+      extraSpecialArgs = {
+        inherit rustToolchain;
+      };
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
@@ -32,4 +47,5 @@
       # to pass through arguments to home.nix
     };
   };
+  # );
 }
