@@ -5,7 +5,7 @@
 }: {
   home.username = "raph";
   home.homeDirectory = "/home/raph";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   nixpkgs.config.allowUnfree = true;
 

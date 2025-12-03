@@ -2,8 +2,6 @@
   description = "Home Manager configuration of raph";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    #   nix.url = "https://flakehub.com/f/DeterminateSystems/nix/2.30.2.tar.gz";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,6 +12,7 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = {
@@ -21,16 +20,20 @@
     home-manager,
     fenix,
     utils,
+    nvf,
     ...
-  }:
-  # utils.lib.eachDefaultSystem (
-  # system: let
-  let
+  } @ inputs: let
     system = utils.lib.system.x86_64-linux;
     pkgs = import nixpkgs {inherit system;};
     fenixLib = fenix.packages.${system};
     rustToolchain = fenixLib.stable.toolchain;
+    customNeovim = inputs.nvf.lib.neovimConfiguration {
+      inherit pkgs;
+      modules = [./nvf-config.nix];
+    };
   in {
+    packages.${system}.neovim = customNeovim.neovim;
+
     homeConfigurations.raph = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {
@@ -40,12 +43,10 @@
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [
+        {home.packages = [customNeovim.neovim];}
         ./home.nix
       ];
-
-      # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
     };
   };
-  # );
 }
