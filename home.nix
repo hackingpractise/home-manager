@@ -83,7 +83,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 2d --keep 4";
-    osFlake = "/etc/nixos";
+    osFlake = "/home/raph/nixos";
     homeFlake = "/home/raph/nix";
   };
 

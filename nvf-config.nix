@@ -35,6 +35,11 @@
       lspSignature.enable = false; # conflicts with blink in maximal
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
+      inlayHints.enable = true;
+      mappings = {
+        goToDefinition = "gd";
+        goToDeclaration = "gD";
+      };
     };
 
     statusline = {
@@ -80,12 +85,41 @@
       sql.enable = true;
     };
 
-    mini.ai.enable = true;
-    mini.git.enable = true;
+    mini = {
+      ai.enable = true;
+      surround.enable = true;
+      pairs.enable = true;
+      comment.enable = true;
+      basics.enable = true;
+      animate.enable = true;
+    };
 
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
+    };
+
+    utility = {
+      ccc.enable = false;
+      vim-wakatime.enable = false;
+      diffview-nvim.enable = true;
+      yanky-nvim.enable = false;
+      icon-picker.enable = true;
+      surround.enable = true;
+      leetcode-nvim.enable = true;
+      multicursors.enable = true;
+      smart-splits.enable = true;
+      undotree.enable = true;
+      nvim-biscuits.enable = true;
+      #
+      motion = {
+        hop.enable = true;
+        leap.enable = true;
+      };
+      images = {
+        image-nvim.enable = false;
+        img-clip.enable = true;
+      };
     };
 
     keymaps = [
@@ -104,6 +138,11 @@
         key = "<C-n>";
         mode = "n";
         action = "<cmd>Neotree toggle<CR>";
+      }
+      {
+        key = "gd";
+        mode = "n";
+        action = "vim.lsp.buf.defination";
       }
     ];
   };
