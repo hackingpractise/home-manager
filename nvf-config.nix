@@ -6,11 +6,35 @@
 }: {
   vim = {
     treesitter.indent.enable = false;
-    options.autoindent = true;
+
+    options = {
+      autoindent = true;
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      softtabstop = 2;
+    };
+
     mini.indentscope.enable = true;
-    filetree.nvimTree = {
+
+    filetree.neo-tree = {
       enable = true;
-      mappings.toggle = "<C-n>";
+      setupOpts.enable_cursor_hijack = true;
+    };
+
+    lsp = {
+      # This must be enabled for the language modules to hook into
+      # the LSP API.
+      enable = true;
+
+      formatOnSave = true;
+      lspkind.enable = false;
+      lightbulb.enable = true;
+      lspsaga.enable = false;
+      trouble.enable = true;
+      lspSignature.enable = false; # conflicts with blink in maximal
+      otter-nvim.enable = true;
+      nvim-docs-view.enable = true;
     };
 
     statusline = {
@@ -27,13 +51,6 @@
       transparent = false;
     };
 
-    lsp = {
-      enable = true;
-      formatOnSave = true;
-      nvim-docs-view.enable = true;
-      lspSignature.enable = false; # conflicts with blink in maximal
-    };
-
     autocomplete = {
       nvim-cmp.enable = false;
       blink-cmp.enable = true;
@@ -45,6 +62,8 @@
       mappings.cycleNext = "<tab>";
       mappings.closeCurrent = "<leader x>";
     };
+
+    telescope.enable = true;
 
     languages = {
       enableFormat = true;
@@ -64,12 +83,27 @@
     mini.ai.enable = true;
     mini.git.enable = true;
 
+    binds = {
+      whichKey.enable = true;
+      cheatsheet.enable = true;
+    };
+
     keymaps = [
       {
         key = "<C-s>";
         mode = "n";
         silent = true;
         action = "<cmd>w<CR>";
+      }
+      {
+        key = "<C-h>";
+        mode = "n";
+        action = "<cmd>Neotree focus<CR>";
+      }
+      {
+        key = "<C-n>";
+        mode = "n";
+        action = "<cmd>Neotree toggle<CR>";
       }
     ];
   };

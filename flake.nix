@@ -31,9 +31,15 @@
       inherit pkgs;
       modules = [./nvf-config.nix];
     };
+    customNeovimFull = inputs.nvf.lib.neovimConfiguration {
+      inherit pkgs;
+      modules = [./nvf-alter.nix];
+    };
   in {
-    packages.${system}.neovim = customNeovim.neovim;
-
+    packages.${system} = {
+      neovim = customNeovim.neovim;
+      neovimFull = customNeovimFull.neovim;
+    };
     homeConfigurations.raph = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {

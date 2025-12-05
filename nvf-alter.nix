@@ -14,8 +14,17 @@
       logFile = "/tmp/nvim.log";
     };
 
+    options = {
+      autoindent = true;
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      softtabstop = 2;
+    };
+
     mini.indentscope.enable = true;
     mini.ai.enable = true;
+
     lsp = {
       # This must be enabled for the language modules to hook into
       # the LSP API.
@@ -63,7 +72,7 @@
       indent-blankline.enable = true;
 
       # Fun
-      cellular-automaton.enable = false;
+      cellular-automaton.enable = true;
     };
 
     statusline = {
@@ -91,7 +100,7 @@
       blink-cmp.enable = true;
     };
 
-    snippets.luasnip.enable = true;
+    # snippets.luasnip.enable = true;
 
     filetree = {
       neo-tree = {
@@ -145,7 +154,7 @@
       smart-splits.enable = true;
       undotree.enable = true;
       nvim-biscuits.enable = true;
-
+      #
       motion = {
         hop.enable = true;
         leap.enable = true;
@@ -203,7 +212,7 @@
       codecompanion-nvim.enable = false;
       avante-nvim.enable = true;
     };
-
+    #
     session = {
       nvim-session-manager.enable = false;
     };
@@ -211,7 +220,7 @@
     gestures = {
       gesture-nvim.enable = false;
     };
-
+    #
     comments = {
       comment-nvim.enable = true;
     };
@@ -219,5 +228,24 @@
     presence = {
       neocord.enable = false;
     };
+
+    keymaps = [
+      {
+        key = "<C-s>";
+        mode = "n";
+        silent = true;
+        action = "<cmd>w<CR>";
+      }
+      {
+        key = "<C-h>";
+        mode = "n";
+        action = "<cmd>Neotree focus<CR>";
+      }
+      {
+        key = "<C-n>";
+        mode = "n";
+        action = "<cmd>Neotree toggle<CR>";
+      }
+    ];
   };
 }
