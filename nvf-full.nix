@@ -22,22 +22,24 @@
       softtabstop = 2;
     };
 
-    mini.indentscope.enable = true;
-    mini.ai.enable = true;
-
     lsp = {
       # This must be enabled for the language modules to hook into
       # the LSP API.
       enable = true;
 
       formatOnSave = true;
-      lspkind.enable = false;
+      lspkind.enable = true;
       lightbulb.enable = true;
       lspsaga.enable = false;
       trouble.enable = true;
-      lspSignature.enable = !true; # conflicts with blink in maximal
+      lspSignature.enable = false; # conflicts with blink in maximal
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
+      inlayHints.enable = true;
+      mappings = {
+        goToDefinition = "gd";
+        goToDeclaration = "gD";
+      };
     };
 
     # This section does not include a comprehensive list of available language modules.
@@ -89,8 +91,6 @@
       transparent = false;
     };
 
-    autopairs.nvim-autopairs.enable = true;
-
     # nvf provides various autocomplete options. The tried and tested nvim-cmp
     # is enabled in default package, because it does not trigger a build. We
     # enable blink-cmp in maximal because it needs to build its rust fuzzy
@@ -116,6 +116,16 @@
     };
 
     treesitter.context.enable = true;
+
+    mini = {
+      ai.enable = true;
+      animate.enable = true;
+      basics.enable = true;
+      comment.enable = true;
+      indentscope.enable = true;
+      pairs.enable = true;
+      surround.enable = true;
+    };
 
     binds = {
       whichKey.enable = true;
@@ -144,16 +154,16 @@
 
     utility = {
       ccc.enable = false;
-      vim-wakatime.enable = false;
       diffview-nvim.enable = true;
-      yanky-nvim.enable = false;
       icon-picker.enable = true;
-      surround.enable = true;
       leetcode-nvim.enable = true;
       multicursors.enable = true;
-      smart-splits.enable = true;
-      undotree.enable = true;
       nvim-biscuits.enable = true;
+      smart-splits.enable = true;
+      surround.enable = true;
+      undotree.enable = true;
+      vim-wakatime.enable = false;
+      yanky-nvim.enable = false;
       #
       motion = {
         hop.enable = true;
@@ -166,10 +176,10 @@
     };
 
     notes = {
-      obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
-      neorg.enable = false;
-      orgmode.enable = false;
       mind-nvim.enable = false;
+      neorg.enable = false;
+      obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+      orgmode.enable = false;
       todo-comments.enable = true;
     };
 
@@ -182,10 +192,10 @@
 
     ui = {
       borders.enable = true;
-      noice.enable = true;
       colorizer.enable = true;
-      modes-nvim.enable = false; # the theme looks terrible with catppuccin
       illuminate.enable = true;
+      modes-nvim.enable = false; # the theme looks terrible with catppuccin
+      noice.enable = true;
       breadcrumbs = {
         enable = true;
         navbuddy.enable = true;

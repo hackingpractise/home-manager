@@ -29,11 +29,11 @@
     rustToolchain = fenixLib.stable.toolchain;
     customNeovim = inputs.nvf.lib.neovimConfiguration {
       inherit pkgs;
-      modules = [./nvf-config.nix];
+      modules = [./nvf.nix];
     };
     customNeovimFull = inputs.nvf.lib.neovimConfiguration {
       inherit pkgs;
-      modules = [./nvf-alter.nix];
+      modules = [./nvf-full.nix];
     };
   in {
     packages.${system} = {

@@ -14,7 +14,7 @@
     pkgs.bacon
     pkgs.chafa
     pkgs.dust
-    pkgs.evil-helix
+    pkgs.helix
     pkgs.eza
     pkgs.fh
     pkgs.go

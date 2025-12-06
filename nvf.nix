@@ -15,8 +15,6 @@
       softtabstop = 2;
     };
 
-    mini.indentscope.enable = true;
-
     filetree.neo-tree = {
       enable = true;
       setupOpts.enable_cursor_hijack = true;
@@ -28,7 +26,7 @@
       enable = true;
 
       formatOnSave = true;
-      lspkind.enable = false;
+      lspkind.enable = true;
       lightbulb.enable = true;
       lspsaga.enable = false;
       trouble.enable = true;
@@ -56,6 +54,9 @@
       transparent = false;
     };
 
+    notify = {
+      nvim-notify.enable = true;
+    };
     autocomplete = {
       nvim-cmp.enable = false;
       blink-cmp.enable = true;
@@ -87,6 +88,7 @@
 
     mini = {
       ai.enable = true;
+      indentscope.enable = true;
       surround.enable = true;
       pairs.enable = true;
       comment.enable = true;
@@ -116,6 +118,7 @@
         hop.enable = true;
         leap.enable = true;
       };
+
       images = {
         image-nvim.enable = false;
         img-clip.enable = true;
@@ -138,11 +141,6 @@
         key = "<C-n>";
         mode = "n";
         action = "<cmd>Neotree toggle<CR>";
-      }
-      {
-        key = "gd";
-        mode = "n";
-        action = "vim.lsp.buf.defination";
       }
     ];
   };
