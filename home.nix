@@ -27,6 +27,7 @@
     pkgs.pass
     pkgs.peazip
     pkgs.presenterm
+    pkgs.pkg-config
     pkgs.ripgrep-all
     pkgs.rusty-man
     pkgs.sccache

@@ -66,7 +66,7 @@
       enable = true;
       mappings.cyclePrevious = "<S-tab>";
       mappings.cycleNext = "<tab>";
-      mappings.closeCurrent = "<leader x>";
+      mappings.closeCurrent = "<C-x>";
     };
 
     telescope.enable = true;
