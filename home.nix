@@ -52,6 +52,11 @@
     # CLI tools
     # pkgs.curlie
     pkgs.jq
+    pkgs.asciinema
+    pkgs.cbonsai
+    pkgs.croc
+    pkgs.grex
+    pkgs.wl-screenrec
     # pkgs.posting
 
     # Nixd lsp

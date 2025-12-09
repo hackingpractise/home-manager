@@ -49,7 +49,7 @@
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [
-        {home.packages = [customNeovim.neovim];}
+        # {home.packages = [customNeovim.neovim];}
         ./home.nix
       ];
       # to pass through arguments to home.nix

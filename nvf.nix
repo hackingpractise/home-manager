@@ -33,7 +33,7 @@
       lspSignature.enable = false; # conflicts with blink in maximal
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
-      inlayHints.enable = true;
+      # inlayHints.enable = true;
       mappings = {
         goToDefinition = "gd";
         goToDeclaration = "gD";
@@ -49,7 +49,7 @@
 
     theme = {
       enable = true;
-      name = "catppuccin";
+      name = "chadracula-evondev";
       style = "mocha";
       transparent = false;
     };
@@ -109,8 +109,8 @@
       icon-picker.enable = true;
       surround.enable = true;
       leetcode-nvim.enable = true;
-      multicursors.enable = true;
-      smart-splits.enable = true;
+      # multicursors.enable = true;
+      # smart-splits.enable = true;
       undotree.enable = true;
       nvim-biscuits.enable = true;
       #
