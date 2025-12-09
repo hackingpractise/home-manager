@@ -65,6 +65,13 @@
     pkgs.zeromq
   ];
 
+  # Cursor themes
+  gtk.cursorTheme = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Mordern-Amber";
+    size = 20;
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
